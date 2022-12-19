@@ -16,6 +16,5 @@ public interface NomregionRepo extends JpaRepository<Nomregion, Long> {
 
      */
 
-
     Nomregion findByNom(String nom);
 }

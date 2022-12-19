@@ -99,12 +99,19 @@ public class AuthController {
 
         log.info("conexion controlleur");
 
+        System.out.println("Username Username" + usersDetails.getUsername() + "Email Email: " + usersDetails.getEmail() + "roles : " +  roles);
+
         //on retourne une reponse, contenant l'id username, e-mail et le role du collaborateur
         return ResponseEntity.ok(new JwtResponse(jwt,
+                /*usersDetails.getId(),
+                usersDetails.getUsername(),
+                usersDetails.getEmail(),
+                roles)*/
                 usersDetails.getId(),
                 usersDetails.getUsername(),
                 usersDetails.getEmail(),
-                roles));
+                roles)
+        );
     }
 
 

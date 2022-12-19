@@ -1,9 +1,6 @@
 package com.tourist.malitourist.Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -15,6 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString
 public class Nomregion {
 
     @Id
@@ -24,9 +22,13 @@ public class Nomregion {
     private String superfie;
     private String coderegion;
     private String activite;
+    //private  String imgregion;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+
+    @ManyToOne( optional = false)
     @JoinColumn(name = "pays", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+   @OnDelete(action = OnDeleteAction.CASCADE)
     private Pays pays;
+
+
 }

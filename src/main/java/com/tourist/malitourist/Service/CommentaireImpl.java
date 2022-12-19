@@ -18,6 +18,10 @@ public class CommentaireImpl implements CommentaireSvc {
         return commentaireRepo.save(commentaire);
     }
 
+    @Override
+    public List<Commentaire> Afficher() {
+        return commentaireRepo.findAll();
+    }
 
 
     @Override

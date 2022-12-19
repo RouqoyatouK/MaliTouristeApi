@@ -11,7 +11,7 @@ public interface CommentaireSvc {
 
     Commentaire Creer(Commentaire commentaire);
     //read
-   // List<Commentaire> Afficher();
+   List<Commentaire> Afficher();
     //Iterable<Object[]> afficher();
 
     //update

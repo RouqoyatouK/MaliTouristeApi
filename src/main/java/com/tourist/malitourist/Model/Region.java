@@ -1,5 +1,6 @@
 package com.tourist.malitourist.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,11 +29,12 @@ public class Region {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "annee", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    //@JsonIgnore
+
+    @JsonIgnore
     private Annee annees;
 
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//fetch = FetchType.LAZY, veut dire
+    @ManyToOne( optional = false)
     @JoinColumn(name = "nomregion", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Nomregion nomregions;

@@ -2,10 +2,12 @@ package com.tourist.malitourist.Service;
 
 
 import com.tourist.malitourist.Model.Nomregion;
+import com.tourist.malitourist.Model.Region;
 import com.tourist.malitourist.Repo.NomregionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -21,7 +23,15 @@ public class NomregionImpl implements NomregionSvc {
 
     @Override
     public List<Nomregion> Afficher() {
-        return nomregionRepo.findAll();
+        List<Nomregion> r = nomregionRepo.findAll();
+        System.err.println("---------------------------------------"+ r +"--------------------------------------");
+/*
+        for (Nomregion a: r){
+            System.err.println("---------------------------------------"+ r +"--------------------------------------");
+        }
+
+ */
+        return r;
     }
 
 
@@ -32,7 +42,8 @@ public class NomregionImpl implements NomregionSvc {
             nr.setActivite(nomregion.getActivite());
             nr.setCoderegion(nomregion.getCoderegion());
             nr.setSuperfie(nomregion.getSuperfie());
-            nr.setPays(nomregion.getPays());
+            //nr.setPays(nomregion.getPays());
+           // nr.setImgregion(nomregion.getImgregion());
             return nomregionRepo.save(nr);
         }).orElseThrow(()->new RuntimeException("nomregion trouver"));
     }

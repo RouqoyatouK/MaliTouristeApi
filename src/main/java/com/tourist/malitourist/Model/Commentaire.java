@@ -23,7 +23,7 @@ public class Commentaire {
     private Date datecmt;
     private String message;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne( optional = false)
     @JoinColumn(name = "region", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Region regions;
