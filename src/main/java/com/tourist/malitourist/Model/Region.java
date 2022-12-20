@@ -9,7 +9,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-
+import java.util.Date;
 
 
 @Getter
@@ -25,13 +25,14 @@ public class Region {
     private Long id;
 
     private String habitants;
+    private Date annee;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    /*@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "annee", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
 
     @JsonIgnore
-    private Annee annees;
+    private Annee annees;*/
 
 //fetch = FetchType.LAZY, veut dire
     @ManyToOne( optional = false)

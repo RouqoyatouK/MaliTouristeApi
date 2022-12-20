@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8100", maxAge = 3600, allowCredentials = "true")
 @RequestMapping("/region")
 public class RegionCtrl {
     @Autowired
@@ -29,9 +30,9 @@ public class RegionCtrl {
 
 
         //Nomregion nomregion = nomregionRepo.findByNom(region.getNomregions().getNom());
-        System.out.println(region.getAnnees());
+        //System.out.println(region.getAnnees());
         Nomregion nomregion=nomregionRepo.findByNom(region.getNomregions().getNom());
-        Annee annee=anneeRepo.findByDate(region.getAnnees().getDate());
+        //Annee annee=anneeRepo.findByDate(region.getAnnees().getDate());
         return regionSvc.Creer(region);
     }
 

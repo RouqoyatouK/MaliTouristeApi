@@ -10,19 +10,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8100", maxAge = 3600, allowCredentials = "true")
 @RequestMapping("/pays")
 public class PaysCtrl {
     @Autowired
     PaysSvc paysSvc;
 
     @PostMapping("/add")
-    @PreAuthorize("hasRole('ADMIN') ")
+    //@PreAuthorize("hasRole('ADMIN') ")
     public Pays Create(@RequestBody Pays pays){
         return paysSvc.Creer(pays);
     }
 
     @GetMapping("/read")
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public List<Pays> Afficherr(){
         return paysSvc.Afficher();
     }

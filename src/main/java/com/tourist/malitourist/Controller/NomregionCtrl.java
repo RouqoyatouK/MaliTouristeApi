@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8100", maxAge = 3600, allowCredentials = "true")
 @RequestMapping("/nomregion")
 public class NomregionCtrl {
 
@@ -23,18 +24,19 @@ public class NomregionCtrl {
     PaysRepo paysRepo;
 
 
-    @PostMapping("/add")
-    @PreAuthorize("hasRole('ADMIN')")
-    public Nomregion Create(@RequestBody Nomregion nomregion){
-
+    @PostMapping("/add/{nomPays}")
+    //@PreAuthorize("hasRole('ADMIN')")
+    public Nomregion Create(@RequestBody Nomregion nomregion, @PathVariable("nomPays") String nomPays){
+        Pays pys = paysRepo.findByNompays(nomPays);
         //Pays pays = paysRepo.findByNompays(nomregion.getPays().getNompays());
+        nomregion.setPays(pys);
         return nomregionSvc.Creer(nomregion);
     }
 
 
 
     @GetMapping("/read")
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     public List<Nomregion> Afficher(){
         return nomregionSvc.Afficher();
     }

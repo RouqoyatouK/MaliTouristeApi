@@ -120,7 +120,11 @@ public class WebSecurityConfig {
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/bienvenue/**").permitAll()
                 .antMatchers("/api/roles/**").permitAll()
-                .antMatchers("/api/collaborateur/**").permitAll()
+                .antMatchers("/pays/**").permitAll()
+                .antMatchers("/nomregion/**").permitAll()
+                .antMatchers("/annee/**").permitAll()
+
+
                 .anyRequest().authenticated()
                 .and();
                // .oauth2Login();

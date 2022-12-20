@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8100", maxAge = 3600, allowCredentials = "true")
 @RequestMapping("/annee")
 public class AnneeCtrl {
 
@@ -18,7 +19,7 @@ public class AnneeCtrl {
 
 
     @PostMapping("/add")
-    @PreAuthorize("hasRole('ADMIN') ")
+    //@PreAuthorize("hasRole('ADMIN') ")
     public String Create(@RequestBody Annee annee){
          this.anneeSvc.Creer(annee);
         return "ok";

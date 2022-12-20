@@ -34,8 +34,7 @@ public class Annee {
     private Long idannee;
     private Date date;
 
-    @ManyToOne
-    private Region region;
+
 
 
 

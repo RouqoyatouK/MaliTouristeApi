@@ -27,7 +27,7 @@ public class RegionImpl implements RegionSvc {
     public Region Modifier(Region region, Long id) {
         return regionRepo.findById(id).map(r->{
             r.setHabitants(region.getHabitants());
-            r.setAnnees(region.getAnnees());
+            r.setAnnee(region.getAnnee());
             r.setNomregions(region.getNomregions());
             return regionRepo.save(r);
         }).orElseThrow(()->new RuntimeException("region trouver"));
