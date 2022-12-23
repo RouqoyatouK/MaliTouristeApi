@@ -22,7 +22,7 @@ public class Nomregion {
     private String superfie;
     private String coderegion;
     private String activite;
-    //private  String imgregion;
+    private  String imgregion;
 
 
     @ManyToOne( optional = false)

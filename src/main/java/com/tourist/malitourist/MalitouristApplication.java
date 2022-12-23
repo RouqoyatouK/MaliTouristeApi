@@ -18,17 +18,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.HashSet;
 import java.util.Set;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 @SpringBootApplication
-public class MalitouristApplication implements CommandLineRunner {
+public class MalitouristApplication {//implements CommandLineRunner {
 
 	private static final Logger log = LoggerFactory.getLogger(AuthController.class);
 
-	final private UsersRepo usersRepo ;
+	/*final private UsersRepo usersRepo ;
 	final private RoleRepo roleRepo  ;
 
 	@Autowired
-	PasswordEncoder encoder;
+	PasswordEncoder encoder;*/
 
 
 	public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class MalitouristApplication implements CommandLineRunner {
 	}
 
 
-	@Override
+	/*@Override
 	public void run(String... args) throws Exception {
 		if(roleRepo.findAll().size() == 0){
 			roleRepo.save(new Role(ERole.ROLE_ADMIN));
@@ -52,6 +52,6 @@ public class MalitouristApplication implements CommandLineRunner {
 			users.setRoles(roles);
 			usersRepo.save(users);
 		}
-	}
+	}*/
 
 }

@@ -42,6 +42,7 @@ public class NomregionImpl implements NomregionSvc {
             nr.setActivite(nomregion.getActivite());
             nr.setCoderegion(nomregion.getCoderegion());
             nr.setSuperfie(nomregion.getSuperfie());
+            nr.setImgregion(nomregion.getImgregion());
             //nr.setPays(nomregion.getPays());
            // nr.setImgregion(nomregion.getImgregion());
             return nomregionRepo.save(nr);
@@ -52,5 +53,10 @@ public class NomregionImpl implements NomregionSvc {
     public String Supprimer(Long idnomregion) {
         this.nomregionRepo.deleteById(idnomregion);
         return "ok!";
+    }
+
+    @Override
+    public Nomregion AfficherUneRegion(Long idnomregion) {
+        return nomregionRepo.findById(idnomregion).get();
     }
 }

@@ -10,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8100", maxAge = 3600, allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:8101", maxAge = 3600, allowCredentials = "true")
 @RequestMapping("/region")
 public class RegionCtrl {
     @Autowired
@@ -24,15 +25,17 @@ public class RegionCtrl {
     NomregionRepo nomregionRepo;
 
 
-    @PostMapping("/add")
-    @PreAuthorize("hasRole('ADMIN') ")
-    public Region Create(@RequestBody Region region){
+    @PostMapping("/add/{nom}")
+    //@PreAuthorize("hasRole('ADMIN') ")
+    public Region Create(@RequestBody Region region, @PathVariable String nom ){
 
-
+        Nomregion nomregion = nomregionRepo.findByNom(nom);
         //Nomregion nomregion = nomregionRepo.findByNom(region.getNomregions().getNom());
         //System.out.println(region.getAnnees());
-        Nomregion nomregion=nomregionRepo.findByNom(region.getNomregions().getNom());
+       // Nomregion ng=nomregionRepo.findByNom(region.getNomregions().getNom());
         //Annee annee=anneeRepo.findByDate(region.getAnnees().getDate());
+        region.setAnnee(new Date());
+        region.setNomregions(nomregion);
         return regionSvc.Creer(region);
     }
 

@@ -19,4 +19,7 @@ public interface NomregionSvc {
     Nomregion Modifier(Nomregion nomregion, Long idnomregion);
     //delete
     String Supprimer(Long idnomregion);
+
+    //Afficher une region
+    Nomregion AfficherUneRegion(Long idnomregion);
 }

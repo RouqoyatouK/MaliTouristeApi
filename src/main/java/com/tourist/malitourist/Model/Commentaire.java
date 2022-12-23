@@ -26,7 +26,7 @@ public class Commentaire {
     @ManyToOne( optional = false)
     @JoinColumn(name = "region", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Region regions;
+    private Nomregion regions;
 
 }
 

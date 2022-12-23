@@ -123,6 +123,10 @@ public class WebSecurityConfig {
                 .antMatchers("/pays/**").permitAll()
                 .antMatchers("/nomregion/**").permitAll()
                 .antMatchers("/annee/**").permitAll()
+                .antMatchers("/region/**").permitAll()
+                .antMatchers("/commentaire/**").permitAll()
+
+
 
 
                 .anyRequest().authenticated()
